@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Curso: {{ curso.nombre }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Editar Curso: {{ curso.nombre }}</h2>
+        <form action="{{ url_for('cursos.update_curso', curso_id=curso.id) }}" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del Curso:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ curso.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3">{{ curso.descripcion }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Actualizar Curso</button>
+            <a href="{{ url_for('cursos.show_curso', curso_id=curso.id) }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

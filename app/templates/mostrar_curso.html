@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Detalles del Curso: {{ curso.nombre }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>{{ curso.nombre }}</h1>
+    </div>
+    <div class="card-body">
+        <p><strong>Descripción:</strong> {{ curso.descripcion }}</p>
+        <p><strong>Creado:</strong> {{ curso.created_at.strftime('%d/%m/%Y %H:%M') }}</p>
+        <p><strong>Última Actualización:</strong> {{ curso.updated_at.strftime('%d/%m/%Y %H:%M') }}</p>
+
+        <h3 class="mt-4">Estudiantes Inscritos:</h3>
+        {% if curso.estudiantes %}
+        <ul class="list-group">
+            {% for estudiante in curso.estudiantes %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ estudiante.nombre }} {{ estudiante.apellido }} ({{ estudiante.email }})
+                <div>
+                    <a href="{{ url_for('estudiantes.edit_estudiante', estudiante_id=estudiante.id) }}" class="btn btn-warning btn-sm mr-2">Editar</a>
+                    <form action="{{ url_for('estudiantes.delete_estudiante', estudiante_id=estudiante.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar a este estudiante?')">Eliminar</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No hay estudiantes inscritos en este curso aún.</p>
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <a href="{{ url_for('cursos.index') }}" class="btn btn-secondary">Volver a Cursos</a>
+        <a href="{{ url_for('cursos.edit_curso', curso_id=curso.id) }}" class="btn btn-warning">Editar Curso</a>
+    </div>
+</div>
+{% endblock %}

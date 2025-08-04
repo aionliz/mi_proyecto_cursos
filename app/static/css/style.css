@@ -1,0 +1,348 @@
+/* app/static/style.css */
+
+/* Estilos base del body y contenedores */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #cccccc;
+    padding-top: 0;
+}
+
+/* Espaciado de contenedores */
+.container {
+    padding-bottom: 20px;
+}
+
+/* Espaciado del contenido principal */
+.main-content {
+    padding-top: 40px;
+}
+
+/* Anula márgenes de Bootstrap */
+.mt-1, .mt-2, .mt-3, .mt-4, .mt-5 {
+    margin-top: 0;
+}
+
+
+/* Barra de navegación personalizada */
+.custom-navbar {
+    background: #3a3a3a;
+    padding: 10px 0;
+    margin-bottom: 40px;
+    width: 100%;
+    z-index: 1030;
+    border-radius: 0;
+}
+
+/* Logo/marca de la navbar */
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #B19CD9;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover del logo */
+.custom-navbar .navbar-brand:hover {
+    color: #e67e22;
+    transform: scale(1.08);
+}
+
+/* Enlaces de navegación */
+.custom-navbar .nav-link {
+    color: #f0f0f0;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hover de enlaces de navegación */
+.custom-navbar .nav-link:hover {
+    background-color: rgba(177,156,217,0.2);
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+/* Botón hamburguesa para móvil */
+.custom-navbar .navbar-toggler {
+    border: none;
+    background-color: rgba(255,255,255,0.15);
+    padding: 8px 12px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+/* Focus del botón hamburguesa */
+.custom-navbar .navbar-toggler:focus {
+    outline: none;
+}
+
+/* Hover del botón hamburguesa */
+.custom-navbar .navbar-toggler:hover {
+    background-color: rgba(255,255,255,0.25);
+    border-color: transparent;
+    border-radius: 8px;
+}
+
+
+/* Tarjetas de contenido */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,.2);
+    margin-bottom: 30px;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+/* Encabezado de tarjetas */
+.card-header {
+    background-color: #C8AAE6;
+    color: #3A3A3A;
+    font-size: 1.35rem;
+    font-weight: 600;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1.2rem 1.5rem;
+}
+
+/* Pie de tarjetas */
+.card-footer {
+    background-color: #3a3a3a;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Etiquetas de formularios */
+.form-group label {
+    font-weight: 600;
+    margin-bottom: .6rem;
+    color: #cccccc;
+}
+
+/* Campos de entrada de texto */
+.form-control {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #6c757d;
+    padding: .85rem 1.1rem;
+}
+
+/* Campos de selección (dropdowns) */
+select.form-control {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: 1px solid #6c757d;
+    padding: .85rem 1.1rem;
+    height: auto;
+    line-height: 1.5;
+    min-height: 50px;
+}
+
+/* Opciones de los dropdowns */
+select.form-control option {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    padding: 10px 15px;
+    line-height: 1.5;
+    height: auto;
+}
+
+/* Hover en opciones de dropdown */
+select.form-control option:hover {
+    background-color: #3a3a3a;
+}
+
+/* Focus en dropdowns */
+select.form-control:focus {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border-color: #e67e22;
+    box-shadow: 0 0 0 0.3rem rgba(230, 126, 34, 0.4);
+    outline: none;
+}
+
+/* Personalización de apariencia de dropdowns */
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23f0f0f0' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+/* Focus general de campos de formulario */
+.form-control:focus {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #e67e22;
+    box-shadow: 0 0 0 0.3rem rgba(230, 126, 34, 0.4);
+}
+
+/* Focus específico para inputs de texto */
+input.form-control:focus {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Estilos base de botones */
+.btn {
+    border-radius: 8px;
+    padding: .8rem 1.5rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Botón principal (crear, registrar) */
+.btn-primary {
+    background-color: #B8D4F1;
+    border-color: #B8D4F1;
+    color: #4A90E2;
+}
+
+.btn-primary:hover {
+    background-color: #A3C7ED;
+    border-color: #A3C7ED;
+    color: #357ABD;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Botón de éxito (actualizar) */
+.btn-success {
+    background-color: #B8E6B8;
+    border-color: #B8E6B8;
+    color: #4CAF50;
+}
+.btn-success:hover {
+    background-color: #A3D9A3;
+    border-color: #A3D9A3;
+    color: #388E3C;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Botón de advertencia (editar) */
+.btn-warning {
+    background-color: #F5D56B;
+    border-color: #F5D56B;
+    color: #B8860B;
+}
+.btn-warning:hover {
+    background-color: #F1C40F;
+    border-color: #F1C40F;
+    color: #A67C00;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Botón de peligro (eliminar) */
+.btn-danger {
+    background-color: #F5A3A3;
+    border-color: #F5A3A3;
+    color: #C62828;
+}
+.btn-danger:hover {
+    background-color: #F28B8B;
+    border-color: #F28B8B;
+    color: #B71C1C;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Botón secundario (cancelar, volver) */
+.btn-secondary {
+    background-color: #D1D1D1;
+    border-color: #D1D1D1;
+    color: #666666;
+}
+.btn-secondary:hover {
+    background-color: #BDBDBD;
+    border-color: #BDBDBD;
+    color: #424242;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Elementos de lista */
+.list-group-item {
+    background-color: #2d2d2d;
+    border: 1px solid #3a3a3a;
+    color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+    padding: 1rem 1.25rem;
+}
+
+/* Enlaces dentro de listas */
+.list-group-item a {
+    color: #B19CD9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hover en enlaces de lista */
+.list-group-item a:hover {
+    text-decoration: underline;
+    color: #e67e22;
+}
+
+/* Contenedor de alertas */
+.flash-messages-container {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+/* Estilo base de alertas */
+.flash-message {
+    padding: 18px 25px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+}
+
+/* Alertas de éxito */
+.flash-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+
+/* Alertas de error */
+.flash-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* Alertas de validación específicas */
+.flash-curso_error, .flash-estudiante_error { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+
+
+/* Títulos y encabezados */
+h1, h2, h3, h4, h5, h6 {
+    color: #f0f0f0;
+    margin-bottom: 1.2rem;
+}
+
+/* Margen derecho para elementos */
+.mr-2 {
+    margin-right: .5rem;
+}
+
+/* Espaciado entre filas */
+.row {
+    margin-bottom: 25px;
+}

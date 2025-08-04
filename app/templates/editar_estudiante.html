@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Estudiante: {{ estudiante.nombre }} {{ estudiante.apellido }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Editar Estudiante: {{ estudiante.nombre }} {{ estudiante.apellido }}</h2>
+        <form action="{{ url_for('estudiantes.update_estudiante', estudiante_id=estudiante.id) }}" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ form_data.nombre if form_data else estudiante.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" value="{{ form_data.apellido if form_data else estudiante.apellido }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ form_data.email if form_data else estudiante.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="curso_id">Curso:</label>
+                <select class="form-control" id="curso_id" name="curso_id" required>
+                    <option value="">-- Selecciona un Curso --</option>
+                    {% for curso in cursos %}
+                    <option value="{{ curso.id }}" {% if (form_data and form_data.curso_id|int == curso.id) or (not form_data and estudiante.curso_id == curso.id) %}selected{% endif %}>{{ curso.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Actualizar Estudiante</button>
+            <a href="{{ url_for('cursos.show_curso', curso_id=estudiante.curso_id) if estudiante.curso_id else url_for('cursos.index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevo Estudiante{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Registrar Nuevo Estudiante</h2>
+        <form action="{{ url_for('estudiantes.create_estudiante') }}" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ form_data.nombre if form_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" value="{{ form_data.apellido if form_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ form_data.email if form_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="curso_id">Curso:</label>
+                <select class="form-control" id="curso_id" name="curso_id" required>
+                    <option value="">-- Selecciona un Curso --</option>
+                    {% for curso in cursos %}
+                    <option value="{{ curso.id }}" {% if form_data and form_data.curso_id|int == curso.id %}selected{% endif %}>{{ curso.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Estudiante</button>
+            <a href="{{ url_for('cursos.index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

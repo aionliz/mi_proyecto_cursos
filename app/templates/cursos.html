@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Crear Nuevo Curso</h2>
+        <form action="{{ url_for('cursos.create_curso') }}" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del Curso:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Curso</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Cursos Existentes</h2>
+        {% if cursos %}
+        <ul class="list-group">
+            {% for curso in cursos %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ url_for('cursos.show_curso', curso_id=curso.id) }}">{{ curso.nombre }}</a>
+                <div>
+                    <a href="{{ url_for('cursos.edit_curso', curso_id=curso.id) }}" class="btn btn-warning btn-sm mr-2">Editar</a>
+                    <form action="{{ url_for('cursos.delete_curso', curso_id=curso.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este curso? Esto también afectará a los estudiantes asociados.')">Eliminar</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No hay cursos registrados aún.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
